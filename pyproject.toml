@@ -1,0 +1,28 @@
+[project]
+requires-python = ">=3.11"
+
+[tool.poetry]
+name = "co2l"
+version = "0.1.0"
+description = "Code for Co^2L: Contrastive Continual Learning. Our code is based on the implementation of Supervised Contrastive Learning."
+authors = ["Cha, Hyuntak", "Lee, Jaeho", "Shin, Jinwoo"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.scripts]
+train_representations = 'continual_learning.main:main'
+train_classifier = 'continual_learning.main_linear_buffer:main'
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+numpy = "^1.26.4"  # ERROR: ... was compiled using NumPy 1 cannot run in NumPy 2
+tensorboard-logger = "^0.1.0"
+torch = "2.2.*"  # >= 2.3 does not install on my iMac
+torchvision = "0.17.*"  # depends on torch@2.2
+pillow = "^10.3.0"
+protobuf = "^3.20"  # must be ^3
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
