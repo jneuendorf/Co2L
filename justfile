@@ -19,3 +19,11 @@ eval-linear:
     --target_task 4 \
     --ckpt ./save_random_200/cifar10_models/cifar10_32_resnet18_lr_0.5_decay_0.0001_bsz_512_temp_0.5_momentum_1.000_trial_0_500_100_0.2_0.01_1.0_cosine_warm/ \
     --logpt ./save_random_200/logs/cifar10_32_resnet18_lr_0.5_decay_0.0001_bsz_512_temp_0.5_momentum_1.000_trial_0_500_100_0.2_0.01_1.0_cosine_warm/
+
+# Run just task in the background (env vars enabled)
+daemon TASK *ARGS="":
+    nohup just {{ TASK }} {{ ARGS }} \
+    > {{ OUT_DIR }}/{{ snakecase(TASK + "__" + ARGS) }}.log 2>&1 &
+
+kill PROC_NAME="continual_learning":
+    kill -9 $(pgrep -f {{ PROC_NAME }})
