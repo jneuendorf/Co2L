@@ -23,7 +23,7 @@ eval-linear:
 # Run just task in the background (env vars enabled)
 daemon TASK *ARGS="":
     nohup just {{ TASK }} {{ ARGS }} \
-    > {{ OUT_DIR }}/{{ snakecase(TASK + "__" + ARGS) }}.log 2>&1 &
+    > {{ snakecase(TASK + "__" + ARGS) }}.log 2>&1 &
 
 kill PROC_NAME="continual_learning":
     kill -9 $(pgrep -f {{ PROC_NAME }})
