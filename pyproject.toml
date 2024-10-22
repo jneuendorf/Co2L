@@ -21,6 +21,7 @@ torch = "2.2.*"  # >= 2.3 does not install on my iMac
 torchvision = "0.17.*"  # depends on torch@2.2
 pillow = "^10.3.0"
 protobuf = "^3.20"  # must be ^3
+tensorboard = "^2.18.0"
 
 
 [build-system]
