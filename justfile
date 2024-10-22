@@ -14,7 +14,7 @@ learn-representations *ARGS="":
     {{ ARGS }}
 
 eval-linear:
-    python main_linear_buffer.py \
+    poetry run python main_linear_buffer.py \
     --learning_rate 1 \
     --target_task 4 \
     --ckpt ./save_random_200/cifar10_models/cifar10_32_resnet18_lr_0.5_decay_0.0001_bsz_512_temp_0.5_momentum_1.000_trial_0_500_100_0.2_0.01_1.0_cosine_warm/ \
